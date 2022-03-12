@@ -12,9 +12,10 @@ echo "
 
 echo "Enter setup number you want;"
 echo "[1] pwntools"
-echo "[2] checksec"
-echo "[3] sublime"
-echo "[4] exit"
+echo "[2] pwndbg"
+echo "[3] checksec"
+echo "[4] sublime"
+echo "[5] exit"
 read -p "Number: " number
 
 if [ $number -eq 1 ]; then 
@@ -24,7 +25,13 @@ if [ $number -eq 1 ]; then
     python3 -m pip install --upgrade pip
     python3 -m pip install --upgrade pwntools
 
-elif [ $number -eq 2 ]; then 
+elif [ $number -eq 2 ]; then
+    echo "[+] Setting up pwndbg"
+    git clone "https://github.com/pwndbg/pwndbg"
+    cd pwndbg
+    ./setup.sh
+
+elif [ $number -eq 3 ]; then 
     echo "[+] Setting up checksec."
     git clone https://github.com/slimm609/checksec.sh.git
     cd checksec.sh
